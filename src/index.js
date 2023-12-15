@@ -15,25 +15,16 @@ const BookList = () => {
   );
 };
 
+const author = "Jordon Moore";
 const Book = () => {
+  const title = "Interesting Facts for Curious Mindssss";
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src="./images/bookCover.jpg" alt="curious mind" />
+      <h2>{title}</h2>
+      <h4>{author.toUpperCase()}</h4>
     </article>
   );
-};
-
-const Image = () => (
-  <img
-    src="https://images-eu.ssl-images-amazon.com/images/W/MEDIAX_792452-T1/images/I/81uXd9NNVbL._AC_UL900_SR900,600_.jpg"
-    alt="The Magic (Tamil)"
-  />
-);
-const Title = () => <h2>The Magic (Tamil)</h2>;
-const Author = () => {
-  return <h4>Rhonda Byrne</h4>;
 };
 
 const root = ReactDom.createRoot(document.getElementById("root"));
