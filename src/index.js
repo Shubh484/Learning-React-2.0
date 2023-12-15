@@ -33,13 +33,15 @@ const BookList = () => {
   );
 };
 
-const Book = (props) => {
-  console.log(props);
+const Book = ({ img, title, author }) => {
+  // Multiple approaches to use props
+  // console.log(props);
+  // const {img,title,author} = props;  // Multiple approaches to use props
   return (
     <article className="book">
-      <img src={props.img} alt={props.title} />
-      <h2>{props.title}</h2>
-      <h4>{props.author.toUpperCase()}</h4>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author.toUpperCase()}</h4>
     </article>
   );
 };
