@@ -22,7 +22,16 @@ const BookList = () => {
           author={firstBook.author}
           title={firstBook.title}
           img={firstBook.img}
-        />
+        >
+          {" "}
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit
+            amet vehicula tellus. Morbi nisl lorem, maximus et semper et, dictum
+            non erat. Curabitur ac libero est. Nullam est enim, consectetur ac
+            sodales non, malesuada non diam. Proin quis vehicula arcu.
+          </p>
+        </Book>
+
         <Book
           author={secondBook.author}
           title={secondBook.title}
@@ -33,7 +42,7 @@ const BookList = () => {
   );
 };
 
-const Book = ({ img, title, author }) => {
+const Book = ({ img, title, author, children }) => {
   // Multiple approaches to use props
   // console.log(props);
   // const {img,title,author} = props;  // Multiple approaches to use props
@@ -42,6 +51,7 @@ const Book = ({ img, title, author }) => {
       <img src={img} alt={title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
+      {children}
     </article>
   );
 };
