@@ -24,23 +24,22 @@ const BookList = () => {
       <section className="booklist">
         {books.map((book) => {
           const { img, title, author, id } = book;
-          return <Book img={img} title={title} author={author} key={id} />;
+          return <Book {...book} key={book.id} />; // passing entire object
         })}
       </section>
     </>
   );
 };
 
-const Book = ({ img, title, author, children }) => {
+const Book = (props) => {
   // Multiple approaches to use props
   // console.log(props);
-  // const {img,title,author} = props;  // Multiple approaches to use props
+  const { img, title, author } = props; // Multiple approaches to use props
   return (
     <article className="book">
       <img src={img} alt={title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
-      {children}
     </article>
   );
 };
