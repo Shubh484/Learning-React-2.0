@@ -2,27 +2,31 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import "./index.css";
 
-const firstBook = {
-  author: "Jordon Moore",
-  title: "Interesting Facts for curious Minds",
-  img: "./images/bookCover.jpg",
-};
+const books = [
+  {
+    author: "Jordon Moore",
+    title: "Interesting Facts for curious Minds",
+    img: "./images/bookCover.jpg",
+    id: 1,
+  },
 
-const secondBook = {
-  author: "James Clear",
-  title: "An easy and proven way to build good habits",
-  img: "./images/Book2.jpg",
-};
+  {
+    author: "James Clear",
+    title: "An easy and proven way to build good habits",
+    img: "./images/Book2.jpg",
+    id: 2,
+  },
+];
 
-const names = ["john", "peter", "susan"];
-const newNames = names.map((name) => {
-  return <h1>{name}</h1>;
-});
-console.log(newNames);
 const BookList = () => {
   return (
     <>
-      <section className="booklist">{newNames}</section>
+      <section className="booklist">
+        {books.map((book) => {
+          const { img, title, author } = book;
+          return <Book img={img} title={title} author={author} />;
+        })}
+      </section>
     </>
   );
 };
