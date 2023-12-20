@@ -1,54 +1,24 @@
 import React from "react";
-import ReactDom from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 
-const books = [
-  {
-    author: "Jordon Moore",
-    title: "Interesting Facts for curious Minds",
-    img: "./images/bookCover.jpg",
-    id: 1,
-  },
-
-  {
-    author: "James Clear",
-    title: "An easy and proven way to build good habits",
-    img: "./images/Book2.jpg",
-    id: 2,
-  },
-];
+import Book from "./Book";
+import { books } from "./books";
 
 const BookList = () => {
   return (
     <>
+      <h1 className="title">amazon best seller</h1>
       <section className="booklist">
-        {books.map((book) => {
+        {books.map((book, index) => {
           const { img, title, author, id } = book;
-          return <Book {...book} key={book.id} />; // passing entire object
+          return <Book {...book} key={book.id} number={index} />; // passing entire object
         })}
       </section>
     </>
   );
 };
 
-const Book = (props) => {
-  // Multiple approaches to use props
-  // console.log(props);
-  const { img, title, author } = props; // Multiple approaches to use props
-
-  const displayTitle = () => {
-    console.log(title);
-  };
-  return (
-    <article className="book">
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <button onClick={displayTitle}>display title</button>
-      <h4>{author.toUpperCase()}</h4>
-    </article>
-  );
-};
-
-const root = ReactDom.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<BookList />);
